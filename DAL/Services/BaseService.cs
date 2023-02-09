@@ -1,0 +1,19 @@
+﻿using Microsoft.Extensions.Configuration;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DAL.Services
+{
+    public abstract class BaseService
+    {
+        protected readonly string _connectionString;
+
+        public BaseService(IConfiguration config)
+        {
+            _connectionString = config.GetConnectionString("adopteundev-DB");
+        }
+    }
+}

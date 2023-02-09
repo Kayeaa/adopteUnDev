@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ClientListItem>
+
+@{
+    ViewData["Title"] = "Client";
+}
+
+<h1>Client</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CliName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CliFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CliMail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CliCompany)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CliLogin)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CliName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CliFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CliMail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CliCompany)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CliLogin)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.idClient }) |
+                @Html.ActionLink("Details", "Details", new { id = item.idClient }) |
+                <!--@Html.ActionLink("Delete", "Delete", new { id=item.idClient }) -->
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
